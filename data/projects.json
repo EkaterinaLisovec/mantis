@@ -1,0 +1,18 @@
+[
+  {
+    "py/object": "model.project.Project",
+    "name": "name7",
+    "status": null,
+    "view_state": null,
+    "description": "description123",
+    "id": null
+  },
+    {
+    "py/object": "model.project.Project",
+    "name": "name8",
+    "status": null,
+    "view_state": null,
+    "description": "description123",
+    "id": null
+  }
+]
