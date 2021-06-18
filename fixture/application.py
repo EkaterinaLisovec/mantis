@@ -1,10 +1,11 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.project import ProjectHelper
+from fixture.soap import SoapHelper
 
 class Application:
 
-    def __init__(self, browser, base_url):
+    def __init__(self, browser, config):
         if browser == "firefox":
             self.wd = webdriver.Firefox(executable_path=r'C:\Windows\SysWOW64\geckodriver.exe')
         elif browser == "chrome":
@@ -14,9 +15,11 @@ class Application:
         else:
             raise ValueError("Unrecognized browser %s" % browser)
         #self.wd.implicitly_wait(5)
-        self.session = SessionHelper(self)
         self.project = ProjectHelper(self)
-        self.base_url = base_url
+        self.session = SessionHelper(self)
+        self.soap = SoapHelper(self)
+        self.config = config
+        self.base_url = config['web']['baseUrl']
 
     def open_home_page(self):
         wd = self.wd
